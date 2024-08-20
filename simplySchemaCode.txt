@@ -1,0 +1,59 @@
+type User{
+  id:ID!
+  name:String!
+  age:Int!
+  height:Float
+  isMarried:Boolean
+  follower:[User!]
+  reelPost:[reels]
+}
+
+type reels{
+  id:ID
+  caption:String
+  description:String
+  hashtag:String
+}
+
+type Query{
+  users:[User]
+  user(id:ID!):User
+}
+
+
+
+https://countries.trevorblades.com/
+
+
+## if more then one input pass
+
+input userquery{
+  id:ID!
+  name:String!
+}
+
+type Query{
+  user(input:userquery):Query
+}
+
+
+
+
+{
+  continents{
+    name
+  }
+}
+
+{
+  continent(code:"AS"){
+    name
+    code
+    countries{
+      name
+      languages{
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+https://graphqlzero.almansi.me/#example-top
+
+## Get A Post
+
+query {
+  post(id: 1) {
+    id
+    title
+    body
+  }
+}
+
+## Get a user
+query {
+  user(id: 1) {
+    id
+    username
+    email
+    address {
+      geo {
+        lat
+        lng
+      }
+    }
+  }
+}
+
+## Get User Post
+query {
+  user(id: 1) {
+    posts {
+      data {
+        id
+        title
+      }
+    }
+  }
+}
+
+
+## Get User Photo album
+
+query (
+  $id: ID!
+) {
+  photo(id: $id) {
+    album {
+      id
+      title
+      user {
+        id
+      }
+    }
+  }
+}
+
+{
+  "id": 5
+}
+
+## Get All Post
+
+query (
+  $options: PageQueryOptions
+) {
+  posts(options: $options) {
+    data {
+      id
+      title
+    }
+    meta {
+      totalCount
+    }
+  }
+}
+
+variable
+
+{
+  "options": {
+    "paginate": {
+      "page": 1,
+      "limit": 5
+    }
+  }
+}
+
+## create Post
+
+mutation (
+  $input: CreatePostInput!
+) {
+  createPost(input: $input) {
+    id
+    title
+    body
+  }
+}
+
+variable
+
+{
+  "input": {
+    "title": "A Very Captivating Post Title",
+    "body": "Some interesting content."
+  }
+}
+
+## update a post
+
+mutation (
+  $id: ID!,
+  $input: UpdatePostInput!
+) {
+  updatePost(id: $id, input: $input) {
+    id
+    body
+  }
+}
+
+variable
+
+{
+  "id": 1,
+  "input": {
+    "body": "Some updated content."
+  }
+}
+
+
+## delete a post
+
+mutation (
+  $id: ID!
+) {
+  deletePost(id: $id)
+}
+
+
+{
+  "id": 101
+}

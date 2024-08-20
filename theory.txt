@@ -1,0 +1,23 @@
+it is query language
+
+1)schema
+2)resolver
+
+
+
+
+
+client:-
+gql:-gql tag is used to define GraphQL queries, mutations, and schemas
+it is used in Apollo Client/Server. 
+
+
+useQuery:- it is used in fetching data in array
+
+useLazyQuery:- in object query we used this
+
+useMutation:- for muation we used this hook
+
+refetch:- it is used in after insert updated record fetch
+
+
